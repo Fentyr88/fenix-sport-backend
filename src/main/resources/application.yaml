@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: fenix-sport-backend
+  datasource:
+    url: jdbc:mysql://localhost:3306/fenix_sport?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: 1MM3B3e3HFwzqUYhZdiV
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+app:
+  jwt:
+    # Debe ser >= 32 caracteres para HS256. Cambiar en producción.
+    secret: "change-me-please-change-me-please-change-me!"
+    expiration-minutes: 120
+  seed:
+    admin:
+      enabled: true
+      nombre: "Admin"
+      email: "admin@fenix.com"
+      password: "admin1234"
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+
