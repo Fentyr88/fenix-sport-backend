@@ -17,11 +17,13 @@ public class ProductPersistenceAdapter implements ProductRepositoryPort {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public Optional<Product> findById(long id) {
 		return productRepository.findById(id).map(ProductMapper::toDomain);
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<Product> findAll() {
 		return productRepository.findAll().stream().map(ProductMapper::toDomain).toList();
 	}
